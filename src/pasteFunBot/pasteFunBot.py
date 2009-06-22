@@ -60,16 +60,16 @@ class buildbotMaster(Template):
     vars.append(
 		var('wport', 'Port utilise pour l\'interface web', default='9080')
 		)
-   vars.append(
+    vars.append(
 		var('slaves', 'Nom des machines esclaves (e1 e2 e3 ...)')
 		)
-   vars.append(
+    vars.append(
 		var('slaves_pwd', 'Mots de passe des esclaves (secret1 secret2 secret3 ...)')
 		)
-   vars.append(
+    vars.append(
 		var('vcs', 'Utilitaire de versionnement utilise', default='svn')
 		)
-   vars.append(
+    vars.append(
 		var('vcs_url', 'Url du depot')
 		)
 
