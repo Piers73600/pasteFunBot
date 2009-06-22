@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 version = "0.1"
 
-setup(name="paste",
+setup(name="pasteFunBot",
     version = version,
     description = "construction et test de monte en charge",
     long_description = "rien",
