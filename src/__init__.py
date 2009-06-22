@@ -1,5 +1,6 @@
 import socket
 from paste.script import templates
+import pkg_ressources
 
 var = templates.var
 recipe = 'collective.buildbot'
