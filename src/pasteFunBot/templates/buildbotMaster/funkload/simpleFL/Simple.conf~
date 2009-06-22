@@ -1,0 +1,67 @@
+#Funkload fichier de config
+# $Id: $
+
+# ---------------------------
+# Section principale
+
+[main]
+#Titre du test
+title=Test simple de funkload
+
+#Description du test
+description= test simple sur google 
+
+#url du site sujet au test
+url=http://www.google.fr
+
+# -----------------------
+# Description et configuration des tests
+# il peut y avoir un par test
+
+[test_simple]
+#description du test
+description=Accede %(nb_time)s fois a la page de google
+
+#nombre de connexions sur le site
+nb_time=10
+
+# ---------------------
+# Configuration monitoring
+
+
+[monitor]
+hosts=localhost
+
+[localhost]
+port=8081
+description=Machine de bench
+
+[ftest]
+log_to = console file
+
+log_path = simple-test.log
+
+result_path = simple-test.xml
+
+sleep_time_min = 0
+
+sleep_time_max = 0
+
+[bench]
+
+cycles = 20:30:50:70:100
+
+duration = 20
+
+startup_delay = 0.05
+
+sleep_time = 1
+
+cycle_time = 1
+
+log_to = file
+log_path = simple-bench.log
+result_path = simple-bench.xml
+
+sleep_time_min = 0
+sleep_time_max = 0.5

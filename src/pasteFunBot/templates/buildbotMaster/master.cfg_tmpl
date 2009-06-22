@@ -1,42 +1,38 @@
 [buildout]
 master-parts =
     master
-    palc
+    ${egg} 
 # uncomment this to enable polling
     poller
 
 [master]
-recipe = collective.buildbot:master
-project-name = palc project
-project-url = http://192.168.168.242/
+recipe = ${recipe}:master
+project-name = ${project} project
+project-url = http://${hostname}:${wport}/
 
 # allow to force build with the web interface
 allow-force = true
 
 # internal port
-port = 9050
+port = ${port}
 
 # http port
-wport = 9080
+wport = ${wport}
 
 # buildbot url. change this if you use a virtualhost
-url = http://192.168.168.242/
+url = http://${hostname}:${wport}/
 
 # static files
 public-html = ${buildout:directory}/public_html
 
 slaves =
-    stpda-server GKEQCRtS
-#irc-host = "irc.freenode.net/8001"
-#irc-channels = "#makinacorpus"
-#irc-nickname = "piers-buildbot"
-#irc-password = ""
+    ${hostname} ${password}
 
-[palc]
-recipe = collective.buildbot:project
-slave-names = stpda-server
-vcs = svn
-repositories = https://subversion.makina-corpus.net/nmd/eggs/nmd.policy/trunk
+[${project}]
+recipe = ${recipe}:project
+slave-names = ${hostname}
+vcs = ${vcs}
+repositories = ${vcs_url}
 
 # notifications
 #mail-host = localhost
@@ -65,11 +61,11 @@ test-sequence =
 #    bin/test --exit-with-status
 
 [poller]
-recipe = collective.buildbot:poller
+recipe = ${recipe}:poller
 # dont forget to check this
 # since it's generated from the paster template it may be a wrong url
-repositories = https://subversion.makina-corpus.net/nmd/eggs/nmd.policy/trunk
-user = stpda
-password = destiny
+repositories = ${vcs_url}
+user = ${vcs_user}
+password = ${vcs_user_password}
 poll-interval = 120
 

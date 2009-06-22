@@ -2,7 +2,7 @@
 extends = master.cfg 
 parts = 
     master
-    palc 
+    ${egg} 
 # uncomment this to enable polling
     poller
 # uncomment this to install buildbot command line tools

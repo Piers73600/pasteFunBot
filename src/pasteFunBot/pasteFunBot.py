@@ -46,3 +46,19 @@ class buildbotSlave(Template):
 
     def post(self, *args, **kwargs):
         print "Configuration esclave terminee"
+
+class buildbotMaster(Template):
+    _template_dir = 'templates/buildbotmaster'
+    summary = "Configuration d'un maitre buildbot, ainsi que des tests de montee en charge funkload"
+    required_templates = []
+
+    vars = copy.deepcopy(Template.vars)
+
+    vars.append(
+		var('url', 'Url du projet', default='127.0.0.1'),
+		var('wport', 'Port utilise pour l\'interface web', default='9080'),
+		var('slaves', 'Nom des machines esclaves (e1 e2 e3 ...)'),
+		var('slaves_pwd', 'Mots de passe des esclaves (secret1 secret2 secret3 ...)'),
+		var('vcs', 'Utilitaire de versionnement utilise', default='svn'),
+		var('vcs_url', 'Url du depot')		
+                )

@@ -26,6 +26,9 @@ de l'affichage de buildbot.
 Enfin, et non les moindres, les fichiers master.cfg ainsi que slave.cfg contiennent la configuration
 des maîtres et des esclaves de buildbot.
 
+Il est egalement necessaire de creer un lien symbolique vers le python a utiliser dans le dossier bin:
+ln -s SOURCE NOM_DU_LIEN
+
 Il nous faut ensuite construire l'environnement: python bootstrap.py puis ./bin/buildout.
 Et enfin, nous pouvons lancer les démons maître/esclaves: ./bin/master start ainsi que ./bin/votrenomdemachine start
 
