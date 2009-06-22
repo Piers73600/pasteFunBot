@@ -15,6 +15,7 @@ setup(name="pasteFunBot",
     include_package_data = True,
     zip_safe = True,
     install_requires=[
+	'Cheetah',
 	'setuptools',
         'PasteScript>=1.3'
     ],
