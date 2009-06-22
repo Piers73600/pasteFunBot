@@ -18,7 +18,6 @@ setup(name="pasteFunBot",
 	'Cheetah',
 	'setuptools',
         'PasteScript>=1.3',
-	'python-dev',
 	'funkload' 
     ],
     packages = find_packages('src'),
