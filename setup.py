@@ -25,5 +25,6 @@ setup(name="pasteFunBot",
     entry_points = """
         [paste.paster_create_template]
         funbot_slave=pasteFunBot.pasteFunBot:buildbotSlave
+	funbot_master=pasteFunBot.pasteFunBot:buildbotMaster
     """
     )
