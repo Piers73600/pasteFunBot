@@ -22,6 +22,7 @@ setup(name="pasteFunBot",
     package_dir = {'': 'src'},
     entry_points = """
         [paste.paster_create_template]
-        funbot=pasteFunBot.pasteFunBot:Template
+        funbot_slave=pasteFunBot.pasteFunBot:buildbotSlave
+
     """
     )
