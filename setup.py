@@ -19,7 +19,6 @@ setup(name="pasteFunBot",
 	'setuptools',
         'PasteScript>=1.3',
 	'python-dev',
-	'python-xml',
 	'funkload' 
     ],
     packages = find_packages('src'),
