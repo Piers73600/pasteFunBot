@@ -1,6 +1,9 @@
+import copy
 import socket
+
+import pkg_resources
+
 from paste.script import templates
-import pkg_ressources
 
 var = templates.var
 recipe = 'collective.buildbot'
@@ -12,7 +15,7 @@ def get_var(vars, name):
         else:
             return ValueError("No such var: %r" % name)
 
-class Namespace(templates.Template):
+class Template(templates.Template):
     summary = "Projet de test de construction et de montee en charge"
     required_templates = []
     use_cheetah = True
@@ -23,12 +26,12 @@ class Namespace(templates.Template):
 	var('port', 'Port d\'ecoute des esclaves', default='9050') 
         ]
 
-class buildbotSlave(Namespace):
+class buildbotSlave(Template):
     _template_dir = 'templates/buildbotSlave'
     summary = "Configuration d'un esclave buildbot"
     required_templates = []
 
-    vars = copy.deepcopy(Namespace.vars)
+    vars = copy.deepcopy(Template.vars)
     
     vars.append(
 		var('master_adress', 'Adresse du maitre')

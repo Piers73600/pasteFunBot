@@ -15,12 +15,13 @@ setup(name="pasteFunBot",
     include_package_data = True,
     zip_safe = True,
     install_requires=[
+	'setuptools',
         'PasteScript>=1.3'
     ],
     packages = find_packages('src'),
     package_dir = {'': 'src'},
     entry_points = """
         [paste.paster_create_template]
-        funbot=pasteFunBot.src:Namespace
+        funbot=pasteFunBot.pasteFunBot:Template
     """
     )

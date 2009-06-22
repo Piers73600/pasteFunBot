@@ -1,0 +1,2 @@
+setuptools
+PasteScript>=1.3
