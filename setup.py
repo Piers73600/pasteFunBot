@@ -17,7 +17,7 @@ setup(name="pasteFunBot",
     install_requires=[
         'PasteScript>=1.3'
     ],
-    entry_point = """
+    entry_points = """
         [paste.paster_create_template]
         funbot=pasteFunBot.paster:Namespace
     """
