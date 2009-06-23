@@ -81,5 +81,9 @@ class buildbotMaster(Template):
 	vars['slaves_pwd'] = 'mot_de_passe_slave'
 
     def post(self, *args, **kwargs):
+	print "==================================================="
 	print "Configuration master effectuee"
-	print "N'oubliez pas de completer master.cfg (slaves, ...)" 
+	print "N'oubliez pas de completer master.cfg (slaves, ...)"
+	print "Creez egalement un lien symbolique vers votre python"
+	print "dans le dossier bin/ et nomme python-nom_du_projet"
+	print "==================================================="  

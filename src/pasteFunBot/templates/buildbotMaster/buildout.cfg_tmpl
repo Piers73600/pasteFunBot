@@ -3,9 +3,8 @@ extends = master.cfg
 parts = 
     master
     ${egg} 
-# uncomment this to enable polling
     poller
-# uncomment this to install buildbot command line tools
+#De-commentez cette ligne de code pour utiliser buildbot en ligne de commande 
 #    buildbot-script
 
 [buildbot-script]
