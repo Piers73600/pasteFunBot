@@ -28,7 +28,7 @@ class Template(templates.Template):
 
 class buildbotSlave(Template):
     _template_dir = 'templates/buildbotSlave'
-    summary = "Configuration d'un esclave buildbot"
+    summary = "Configuration d'un esclave buildbot ainsi que de tests de montee en charge funkload"
     required_templates = []
 
     vars = copy.deepcopy(Template.vars)
@@ -49,7 +49,7 @@ class buildbotSlave(Template):
 
 class buildbotMaster(Template):
     _template_dir = 'templates/buildbotMaster'
-    summary = "Configuration d'un maitre buildbot, ainsi que des tests de montee en charge funkload"
+    summary = "Configuration d'un maitre buildbot"
     required_templates = []
 
     vars = copy.deepcopy(Template.vars)
