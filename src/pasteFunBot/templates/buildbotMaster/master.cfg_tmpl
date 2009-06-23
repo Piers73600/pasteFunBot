@@ -26,11 +26,11 @@ url = http://${hostname}:${wport}/
 public-html = ${directory}/public_html
 
 slaves =
-    ${hostname} ${password}
+    ${slaves} ${slaves_pwd}
 
 [${project}]
 recipe = ${recipe}:project
-slave-names = ${hostname}
+slave-names = ${slaves}
 vcs = ${vcs}
 repositories = ${vcs_url}
 
