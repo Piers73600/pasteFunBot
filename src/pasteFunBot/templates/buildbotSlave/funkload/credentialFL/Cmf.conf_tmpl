@@ -69,7 +69,7 @@ duration = 20
 #Delai de demarrage des threads
 startup_delay = 0.05
 
-#Temps entre chaque l'execution de chaque test par ls threads
+#Temps entre chaque l'execution de chaque test par les threads
 sleep_time = 1
 
 #Nombre de cycles de tests

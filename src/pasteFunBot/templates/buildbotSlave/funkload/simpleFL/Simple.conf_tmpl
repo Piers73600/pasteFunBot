@@ -37,7 +37,7 @@ nb_time=10
 hosts=localhost
 
 [localhost]
-#Port utilisé par le moniteur
+#Port utilise par le moniteur
 port=8081
 #Description du moniteur
 description=Machine de bench
@@ -70,7 +70,7 @@ duration = 20
 #Delai de demarrage des threads
 startup_delay = 0.05
 
-#Temps entre chaque l'execution de chaque test par ls threads
+#Temps entre chaque l'execution de chaque test par les threads
 sleep_time = 1
 
 #Nombre de cycles de tests
