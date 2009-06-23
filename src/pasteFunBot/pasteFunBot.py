@@ -48,7 +48,7 @@ class buildbotSlave(Template):
         print "Configuration esclave terminee"
 
 class buildbotMaster(Template):
-    _template_dir = 'templates/buildbotmaster'
+    _template_dir = 'templates/buildbotMaster'
     summary = "Configuration d'un maitre buildbot, ainsi que des tests de montee en charge funkload"
     required_templates = []
 
