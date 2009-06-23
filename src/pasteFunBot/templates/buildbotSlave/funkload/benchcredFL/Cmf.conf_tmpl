@@ -9,7 +9,11 @@ title=Tests cmf simples
 #Description des tests
 description=Quelques actions basiques
 #Url du site a tester
-url=http://localhost:8080
+#if ${aport}
+url=http://localhost:${aport}/
+#else
+url=http://localhost/
+#end if
 
 #---------------------------------
 # Description et configuration des tests

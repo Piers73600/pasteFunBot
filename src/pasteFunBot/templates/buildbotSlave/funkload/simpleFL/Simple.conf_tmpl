@@ -1,52 +1,57 @@
-# Fichier de config des tests
+#Funkload fichier de config
+# $Id: $
 
-#----------------------------------
+# ---------------------------
 # Section principale
 
 [main]
-#Nom des tests
-title=Tests cmf simples
-#Description des tests
-description=Quelques actions basiques
-#Url du site a tester
-url=http://localhost:8080
+#Titre du test
+title=Test exemple de funkload
 
-#---------------------------------
+#Description du test
+description= test exemple sur un site de la machine 
+
+#url du site sujet au test
+#if ${aport}
+url=http://127.0.0.1:${port}/
+#else
+url=http://127.0.0.1/
+#end if
+# -----------------------
 # Description et configuration des tests
-# Il est possible de mettre une section par fonction de test
-[test_01_connect]
+# il peut y avoir un par test
+
+[test_simple]
 #description du test
-description="connexion au site"
+description=Accede %(nb_time)s fois a la page du site
 
-#---------------------------------
-# Accès credential
-[credential]
-#Adresse du serveur credential
-host=localhost
-#Port du serveur credential
-port=8081
+#nombre de connexions sur le site
+nb_time=10
 
-#--------------------------------
-# Configuration du monitoring
+# ---------------------
+# Configuration monitoring
+
 
 [monitor]
-#hosts=localhost
+#Nom du moniteur
+hosts=localhost
 
 [localhost]
-port=8008
+#Port utilisé par le moniteur
+port=8081
+#Description du moniteur
 description=Machine de bench
 
-#---------------------------------
-# Configuration des tests unitaires
+#Gestion des tests "simples"
 [ftest]
 #Permet de choisir si l'on desire un affichage sur console ou dans un fichier
 #il est possible de choisir les deux (console file)
 log_to = console file
 
 #Chemin vers le fichier de log
-log_path = cmf-test.log
+log_path = simple-test.log
 #Chemin vers le fichier de resultat
-result_path = cmf-test.xml
+result_path = simple-test.xml
 
 #Temps minimal entre l'execution des tests
 sleep_time_min = 0
@@ -73,8 +78,8 @@ cycle_time = 1
 
 #Identiques aux variables de la parts precedente
 log_to = file
-log_path = cmf-bench.log
-result_path = cmf-bench.xml
+log_path = simple-bench.log
+result_path = simple-bench.xml
 
 sleep_time_min = 0
 sleep_time_max = 0.5

@@ -34,6 +34,10 @@ class buildbotSlave(Template):
     vars = copy.deepcopy(Template.vars)
     
     vars.append(
+		var('aport', 'Port de l\'application', default='')
+		)    
+
+    vars.append(
 		var('master_adress', 'Adresse du maitre')
 		)
     vars.append(
