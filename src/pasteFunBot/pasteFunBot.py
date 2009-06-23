@@ -72,6 +72,13 @@ class buildbotMaster(Template):
     vars.append(
 		var('vcs_url', 'Url du depot')
 		)
+    vars.append(
+		var('vcs_user', 'Username du depot')
+		)
+    vars.append(
+		var('vcs_user_password', 'Mot de passe du depot', should_echo=False)
+		)
+
     def pre(self, command, output_dir, vars ):
         vars['recipe'] = recipe
         vars['directory'] = '${buildout:directory}'
