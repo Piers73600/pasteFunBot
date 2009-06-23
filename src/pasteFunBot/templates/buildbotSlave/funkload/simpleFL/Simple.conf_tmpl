@@ -13,7 +13,7 @@ description= test exemple sur un site de la machine
 
 #url du site sujet au test
 #if $aport
-url=http://127.0.0.1:${port}/
+url=http://127.0.0.1:${aport}/
 #else
 url=http://127.0.0.1/
 #end if
