@@ -23,7 +23,7 @@ wport = ${wport}
 url = http://${hostname}:${wport}/
 
 # static files
-public-html = ${buildout:directory}/public_html
+public-html = \${buildout:directory}/public_html
 
 slaves =
     ${hostname} ${password}
