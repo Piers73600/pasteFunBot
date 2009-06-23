@@ -23,7 +23,7 @@ wport = ${wport}
 url = http://${hostname}:${wport}/
 
 # static files
-public-html = \${buildout:directory}/public_html
+public-html = ${directory}/public_html
 
 slaves =
     ${hostname} ${password}
@@ -52,8 +52,8 @@ cron-scheduler = 0 8 * * *
 build-sequence =
 	/home/stpda/makina/nmdBB/bin/python-nmd bootstrap.py
 	/home/stpda/makina/nmdBB/bin/python-nmd bin/buildout -vvvvv
-#     \${buildout:directory}/bin/python-nmd bootstrap.py
-#     \${buildout:directory}/bin/python-nmd bin/buildout -vvvvv
+#     ${directory}/bin/python-nmd bootstrap.py
+#     ${directory}/bin/python-nmd bin/buildout -vvvvv
 
 test-sequence =
     bin/instance test -s Products.ImageEditor --exit-with-status

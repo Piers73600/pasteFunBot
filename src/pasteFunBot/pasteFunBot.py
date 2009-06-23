@@ -53,7 +53,7 @@ class buildbotMaster(Template):
     required_templates = []
 
     vars = copy.deepcopy(Template.vars)
-
+	
     vars.append(
 		var('url', 'Url du projet', default='127.0.0.1'),		
                 )
@@ -72,5 +72,8 @@ class buildbotMaster(Template):
     vars.append(
 		var('vcs_url', 'Url du depot')
 		)
-
+    def pre(self, command, output_dir, vars ):
+        vars['recipe'] = recipe
+        vars['directory'] = '${buildout:directory}'
+        vars['hostname'] = socket.gethostname()
 
