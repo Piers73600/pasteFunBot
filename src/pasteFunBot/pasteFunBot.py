@@ -61,12 +61,6 @@ class buildbotMaster(Template):
 		var('wport', 'Port utilise pour l\'interface web', default='9080')
 		)
     vars.append(
-		var('slaves', 'Nom des machines esclaves (e1 e2 e3 ...)')
-		)
-    vars.append(
-		var('slaves_pwd', 'Mots de passe des esclaves (secret1 secret2 secret3 ...)')
-		)
-    vars.append(
 		var('vcs', 'Utilitaire de versionnement utilise', default='svn')
 		)
     vars.append(
@@ -79,8 +73,13 @@ class buildbotMaster(Template):
 		var('vcs_user_password', 'Mot de passe du depot', should_echo=False)
 		)
 
-    def pre(self, command, output_dir, vars ):
+    def pre(self, command, output_dir, vars):
         vars['recipe'] = recipe
         vars['directory'] = '${buildout:directory}'
         vars['hostname'] = socket.gethostname()
+	vars['slaves'] = 'nom_du_slave'
+	vars['slaves_pwd'] = 'mot_de_passe_slave'
 
+    def post(self, *args, **kwargs):
+	print "Configuration master effectuee"
+	print "N'oubliez pas de completer master.cfg (slaves, ...)" 
