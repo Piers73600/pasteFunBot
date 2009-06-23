@@ -1,8 +1,6 @@
 [buildout]
 extends = slave.cfg
 parts = 
-    master
-    ${egg}
     ${hostname}
 # uncomment this to enable polling
 #    poller
