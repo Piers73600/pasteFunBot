@@ -23,7 +23,7 @@ url=http://localhost/
 description="connexion au site"
 
 #---------------------------------
-# Accès credential
+# Acces credential
 [credential]
 #Adresse du serveur credential
 host=localhost
