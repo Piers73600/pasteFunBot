@@ -52,7 +52,7 @@ group.txt:
 	group1:user1, user2
 	group2:user3
 	...
-
+  Il suffit ensuite de lancer le serveur de credential avec la commande fl-credential-ctl fichier_conf_credential
 => Réaliser des tests en utilisant des fonctionnalités xmlrpc: quelques fonctions de base utilisant le protocole xmlrpc sont disponibles dans la classe de tests.
 
 ******************Implémentation de funkload******************

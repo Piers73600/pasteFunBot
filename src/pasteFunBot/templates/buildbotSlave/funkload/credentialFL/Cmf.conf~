@@ -18,6 +18,9 @@ url=http://localhost:8080
 #description du test
 description="connexion au site"
 
+[test_02_add_permission]
+description="Créer une nouvelle permission"
+
 #---------------------------------
 # Accès credential
 [credential]
@@ -30,10 +33,10 @@ port=8081
 # Configuration du monitoring
 
 [monitor]
-hosts=localhost
+#hosts=localhost
 
 [localhost]
-port=8082
+port=8008
 description=Machine de bench
 
 #---------------------------------
