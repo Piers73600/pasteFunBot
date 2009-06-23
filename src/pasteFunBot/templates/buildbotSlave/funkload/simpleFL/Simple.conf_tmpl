@@ -12,7 +12,7 @@ title=Test exemple de funkload
 description= test exemple sur un site de la machine 
 
 #url du site sujet au test
-#if ${aport}
+#if $aport
 url=http://127.0.0.1:${port}/
 #else
 url=http://127.0.0.1/
