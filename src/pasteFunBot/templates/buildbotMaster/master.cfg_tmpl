@@ -56,8 +56,8 @@ cron-scheduler = 0 8 * * *
 #Vous pouvez faire construire l'application de la maniere dont vous le souhaitez
 #Cependant, utilisez le python python-\${project} pour executer ces actions 
 build-sequence =
-	${directory}/bin/python-${project} bootstrap.py
-	${directory}/bin/python-${project} bin/buildout -vvvvv
+	python-${project} bootstrap.py
+	python-${project} bin/buildout -vvvvv
 
 #Mettez ainsi les commandes de test funkload dans cette partie
 test-sequence =
