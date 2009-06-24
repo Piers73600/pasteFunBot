@@ -49,11 +49,11 @@ class buildbotSlave(Template):
         vars['hostname'] = socket.gethostname()
 
     def post(self, *args, **kwargs):
-	print "==================================================="
+        print "==================================================="
         print "Configuration slave effectuee"
         print "Creez un lien symbolique vers votre python"
         print "dans le dossier bin/ et nomme python-nom_du_projet"
-	print "enfin, ajoutez le au PATH du systeme"
+        print "enfin, ajoutez le au PATH du systeme"
         print "==================================================="
 
 class buildbotMaster(Template):
@@ -90,7 +90,7 @@ class buildbotMaster(Template):
 	vars['slaves_pwd'] = 'mot_de_passe_slave'
 
     def post(self, *args, **kwargs):
-	print "==================================================="
-	print "Configuration master effectuee"
-	print "N'oubliez pas de completer master.cfg (slaves, ...)"
-	print "==================================================="  
+        print "==================================================="
+        print "Configuration master effectuee"
+        print "N'oubliez pas de completer master.cfg (slaves, ...)"
+        print "==================================================="  
