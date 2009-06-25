@@ -59,9 +59,10 @@ build-sequence =
 	python-${project} bootstrap.py
 	python-${project} bin/buildout -vvvvv
 
-#Mettez ainsi les commandes de test funkload dans cette partie
+#Pour réaliser vos tests, il est necessaire de creer dans le dossier build
+#du buildbot un script bash contenant les tests a executer
 test-sequence =
-	fl-run-test ./funkload/simpleFL/test_simple.py
+    ./test-sequence.sh	
 
 [poller]
 recipe = ${recipe}:poller
