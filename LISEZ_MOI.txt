@@ -1,0 +1,61 @@
+===============================================================================
+				Paster FunBot
+===============================================================================
+
+*********************************Description***********************************
+
+Le paster funbot, vous permet de créer un projet contenant la construction d'une
+application mais également des tests de montée en charge grace à l'outil
+funkload.
+
+*********************************Utilisation***********************************
+
+Tout d'abord, une fois pasteFunBot récupéré, il vous faudra utiliser la 
+commande suivante:
+
+python setup.py develop
+
+Afin d'adapter l'application à votre python.
+
+Ensuite, pour verifier si l'installation du paster a bien fonctionné, utilisez
+la commande suivante:
+
+paster create --list-templates
+
+Et vous devriez avoir dans votre liste des informations du genre:
+
+buildbot:	A template for collective.buildbot
+funbot_master:	Configuration d'un maitre buildbot
+funbot_slave:	Configuration d'un esclave buildbot ainsi que de tests de montee
+		en charge funkload
+...
+
+funbot est alors bien installé !
+
+Maintenant, il ne vous reste plus qu'a utiliser ce nouveau paster:
+
+paster create -t funbot_master
+ou
+paster create -t funbot_slave
+
+Après avoir répondu à diverses questions, la configuration générale du projet 
+sera réalisée.
+Cependant, il vous reste quelques actions à effectuer.
+
+Si vous avez créé un master:
+----------------------------
+Premièrement, entrez dans le fichier master.cfg et indiquez le nom des esclaves
+ainsi que leur mots de passe.
+Deuxièmement, dans ce même fichier, vous pouvez spécifier les lignes de 
+commandes à executer par les esclaves, dans la section monprojet dans la
+variable build-sequence.
+
+Note: rappelons qu'il vous faut créer un lien symbolique chez les esclaves
+dénommé python-monprojet dans un dossier nommé bin/ pointant sur le python que 
+vous voulez utiliser.
+
+Troisiemement, toujours dans la configuration du master, il est également
+possible, comme pour la construction de l'application de préciser les
+lignes de commandes servant de test cette dernière.
+
+

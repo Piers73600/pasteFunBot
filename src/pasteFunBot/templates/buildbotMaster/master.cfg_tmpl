@@ -62,8 +62,7 @@ build-sequence =
 #Pour réaliser vos tests, il est necessaire de creer dans le dossier build
 #du buildbot un script bash contenant les tests a executer
 test-sequence =
-    ./test-sequence.sh	
-
+	make -C ../../../../funkload/simpleFL/ test
 [poller]
 recipe = ${recipe}:poller
 #Adresse du depot de versionnement du projet (il est possible de donner une
