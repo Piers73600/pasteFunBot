@@ -43,6 +43,10 @@ class buildbotSlave(Template):
     vars.append(
                 var('password', 'Mot de passe de l\'esclave')
                 )
+    vars.append(
+		var('email', 'Adresse de reception des rapports')
+		)    
+
     def pre(self, command, output_dir, vars):
         vars['recipe'] = recipe
         vars['directory'] = '${buildout:directory}'

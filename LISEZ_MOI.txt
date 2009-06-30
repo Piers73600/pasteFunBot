@@ -8,6 +8,23 @@ Le paster funbot, vous permet de créer un projet contenant la construction d'un
 application mais également des tests de montée en charge grace à l'outil
 funkload.
 
+***********************************Recquis*************************************
+
+Master:
+-------
+
+L'application en recquiert rien de particulier au niveau de la machine master
+
+Slave:
+------
+
+Pour l'esclave, vous aurez besoin d'installer: 
+    - gnuplot: pour pouvoir générer les rapports
+    - un serveur apache: pour pouvoir afficher ces rapports et les rendre
+    accessibles de l'extérieur
+    - un postfix: pour pouvoir envoyer des e-mails recapitulatifs des tests
+    de montée en charge
+
 *********************************Utilisation***********************************
 
 Tout d'abord, une fois pasteFunBot récupéré, il vous faudra utiliser la 
@@ -57,5 +74,32 @@ vous voulez utiliser.
 Troisiemement, toujours dans la configuration du master, il est également
 possible, comme pour la construction de l'application de préciser les
 lignes de commandes servant de test cette dernière.
+Pour simplifier l'écriture de ces tests, nous utilisons des Makefile situés 
+dans les sous-repertoires de funkload/ .
+Des exemples de ces fichiers sont disponibles dans les répertoires de base de
+l'esclave.
+Il est donc conseillé d'utiliser une simple commande make dans la test_sequence
+comme indiqué dans la configuration par défaut.
+
+Une fois la configuration effectuée, entrez les commandes suivantes:
+python bootstrap.py
+./bin/buildout
+
+Votre master est alors configuré comme il se doit, vous pouvez donc le lancer:
+./bin/master [start | restart |stop]
+
+Si vous avez créé un slave:
+---------------------------
+
+Tout d'abord, il vous est conseillé de regarder les fichiers de tests contenus
+dans le dossier funkload pour que vous puissiez prendre en main l'outil.
+Un Lisez-moi est disponible dans ce dossier, expliquant le fonctionnement
+global de funkload.
+
+Ensuite, dans le but de rendre vos rapports de tests accessibles de l'exterieur
+il est nécessaire de faire un lien symbolique nommé "reports" vers le dossier du
+même nom contenu dans le dossier funkload du projet de la machine esclave.
+
+
 
 
