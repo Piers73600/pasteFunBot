@@ -97,6 +97,4 @@ class buildbotMaster(Template):
         print "==================================================="
         print "Configuration master effectuee"
         print "N'oubliez pas de completer master.cfg (slaves, ...)"
-	print "Pour effectuer des tests, veuillez egalement creer "
-	print "un script bash dans le dossier build du buildbot"
         print "==================================================="  
