@@ -100,6 +100,11 @@ Ensuite, dans le but de rendre vos rapports de tests accessibles de l'exterieur
 il est nécessaire de faire un lien symbolique nommé "reports" vers le dossier du
 même nom contenu dans le dossier funkload du projet de la machine esclave.
 
+Une fois la configuration effectuée, entrez les commandes suivantes:
+python bootstrap.py
+./bin/buildout
 
+Votre master est alors configuré comme il se doit, vous pouvez donc le lancer:
+./bin/nomdevotremachine [start | restart |stop]
 
 

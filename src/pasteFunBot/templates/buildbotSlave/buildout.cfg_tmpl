@@ -2,8 +2,6 @@
 extends = slave.cfg
 parts = 
     ${hostname}
-# uncomment this to enable polling
-#    poller
 # uncomment this to install buildbot command line tools
 #    buildbot-script
 
