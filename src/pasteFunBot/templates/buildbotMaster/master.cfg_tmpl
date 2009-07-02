@@ -59,7 +59,7 @@ build-sequence =
 	python-${project} bootstrap.py
 	python-${project} bin/buildout -vvvvv
 
-#Pour réaliser vos tests, il est necessaire de creer dans le dossier build
+#Pour realiser vos tests, il est necessaire de creer dans le dossier build
 #du buildbot un script bash contenant les tests a executer
 test-sequence =
 	make -C ../../../../funkload/simpleFL/ test
