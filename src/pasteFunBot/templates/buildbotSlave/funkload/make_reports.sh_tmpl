@@ -11,6 +11,6 @@ chmod -R 755 .
 filename=`ls -lt | grep "diff" | head -1 | cut --delimiter=' ' -f 8`
 ip=`ifconfig eth0 | grep "inet adr" | cut --delimiter=: -f 2 | cut --delimiter =' ' -f 1`
 date=`date`
-subject=`echo "Rapport FunkLoad du"`\$date
+subject=`echo "Rapport FunkLoad du "`\$date
 text=`echo Lien vers le Rapport: http://`\$ip"/reports/"\$filename"/"
 python ../sendmail.py ${email} "\$subject" "\$text"
