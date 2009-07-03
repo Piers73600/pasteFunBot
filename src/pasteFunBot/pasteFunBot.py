@@ -58,6 +58,7 @@ class buildbotSlave(Template):
         print "Creez un lien symbolique vers votre python"
         print "dans le dossier bin/ et nomme python-nom_du_projet"
         print "enfin, ajoutez le au PATH du systeme"
+	print "Pensez a lire les LISEZ-MOI"
         print "==================================================="
 
 class buildbotMaster(Template):
@@ -97,4 +98,5 @@ class buildbotMaster(Template):
         print "==================================================="
         print "Configuration master effectuee"
         print "N'oubliez pas de completer master.cfg (slaves, ...)"
-        print "==================================================="  
+	print "Pensez a lire les LISEZ-MOI"
+	print "==================================================="  

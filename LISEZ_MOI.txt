@@ -1,14 +1,14 @@
-===============================================================================
+================================================================================
 				Paster FunBot
-===============================================================================
+================================================================================
 
-*********************************Description***********************************
+*********************************Description************************************
 
 Le paster funbot, vous permet de créer un projet contenant la construction d'une
 application mais également des tests de montée en charge grace à l'outil
 funkload.
 
-***********************************Recquis*************************************
+***********************************Recquis**************************************
 
 Master:
 -------
@@ -22,10 +22,8 @@ Pour l'esclave, vous aurez besoin d'installer:
     - gnuplot: pour pouvoir générer les rapports
     - un serveur apache: pour pouvoir afficher ces rapports et les rendre
     accessibles de l'extérieur
-    - un postfix: pour pouvoir envoyer des e-mails recapitulatifs des tests
-    de montée en charge
-
-*********************************Utilisation***********************************
+ 
+*********************************Utilisation************************************
 
 Tout d'abord, une fois pasteFunBot récupéré, il vous faudra utiliser la 
 commande suivante:
@@ -59,6 +57,8 @@ Après avoir répondu à diverses questions, la configuration générale du proj
 sera réalisée.
 Cependant, il vous reste quelques actions à effectuer.
 
+********************************Configuration**********************************
+
 Si vous avez créé un master:
 ----------------------------
 Premièrement, entrez dans le fichier master.cfg et indiquez le nom des esclaves
@@ -71,7 +71,7 @@ Note: rappelons qu'il vous faut créer un lien symbolique chez les esclaves
 dénommé python-monprojet dans un dossier nommé bin/ pointant sur le python que 
 vous voulez utiliser.
 
-Troisiemement, toujours dans la configuration du master, il est également
+Troisièmement, toujours dans la configuration du master, il est également
 possible, comme pour la construction de l'application de préciser les
 lignes de commandes servant de test cette dernière.
 Pour simplifier l'écriture de ces tests, nous utilisons des Makefile situés 
@@ -107,4 +107,10 @@ python bootstrap.py
 Votre master est alors configuré comme il se doit, vous pouvez donc le lancer:
 ./bin/nomdevotremachine [start | restart |stop]
 
+Quelques dernières manipulations sur l'esclave:
+-----------------------------------------------
 
+=> Vérifiez les droits d'exécution du fichier make_reports.sh afin de permettre
+au slave de l'executer
+=> Créez un lien symbolique nommé reports, liant le dossier du même nom situé
+dans le dossier funkload du funbot_slave
