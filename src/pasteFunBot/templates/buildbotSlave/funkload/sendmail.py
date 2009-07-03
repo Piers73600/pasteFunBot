@@ -9,7 +9,7 @@ def sendTextMail(to,subject,text):
     mail['Subject'] = subject
     mail['To'] = to
     smtp = smtplib.SMTP()
-    smtp.connect()
+    smtp.connect('smtp.makina-corpus.com')
     smtp.sendmail(sender, [to], mail.as_string())
     smtp.close()
  
