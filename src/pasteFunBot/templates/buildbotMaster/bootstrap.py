@@ -19,7 +19,6 @@ use the -c option to specify an alternate configuration file.
 
 $Id$
 """
-
 import os, shutil, sys, tempfile, urllib2
 
 tmpeggs = tempfile.mkdtemp()
@@ -29,7 +28,7 @@ exec urllib2.urlopen('http://peak.telecommunity.com/dist/ez_setup.py'
                      ).read() in ez
 ez['use_setuptools'](to_dir=tmpeggs, download_delay=0)
 
-import pkg_resources
+import pkg_ressources
 
 cmd = 'from setuptools.command.easy_install import main; main()'
 if sys.platform == 'win32':
