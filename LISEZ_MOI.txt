@@ -104,13 +104,19 @@ Une fois la configuration effectuée, entrez les commandes suivantes:
 python bootstrap.py
 ./bin/buildout
 
-Votre master est alors configuré comme il se doit, vous pouvez donc le lancer:
+Votre slave est alors configuré comme il se doit, vous pouvez donc le lancer:
 ./bin/nomdevotremachine [start | restart |stop]
+
+Pensez egalement a lancer la commande suivante pour beneficier de votre buildbot et des rapports:
+paster serve mail.ini &
 
 Quelques dernières manipulations sur l'esclave:
 -----------------------------------------------
 
 => Vérifiez les droits d'exécution du fichier make_reports.sh afin de permettre
 au slave de l'executer
-=> Créez un lien symbolique nommé reports, liant le dossier du même nom situé
-dans le dossier funkload du funbot_slave
+
+
+
+Vous pouvez avoir acces à votre buildbot via l'adresse suivante:
+http://adresseslave:8000/buildbot
