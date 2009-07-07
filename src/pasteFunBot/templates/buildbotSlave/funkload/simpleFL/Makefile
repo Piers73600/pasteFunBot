@@ -12,6 +12,6 @@ bench: simple_bench
 
 simple_bench:
 	$(MONCTL) restart
-	fl-run-bench test_Simple.py Simple.test_Simple
+	fl-run-bench test_Simple.py Simple.test_simple
 	$(MONCTL) stop
-	../make_reports.sh simpleFL/ simple-test.xml
+	../make_reports.sh simpleFL/ simple-bench.xml

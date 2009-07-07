@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd 'pwd'/\$1/xml/
+cd `pwd`/xml/
 fl-build-report --html --output-directory=../../reports/ \$2
 sleep 5
 cd ../../reports/
@@ -9,7 +9,7 @@ last=`ls | grep -v diff | tail -2 | head -1`
 fl-build-report --diff \$last \$current
 chmod -R 755 .
 filename=`ls -lt | grep "diff" | head -1 | cut --delimiter=' ' -f 8`
-ip=`ifconfig eth0 | grep "inet adr" | cut --delimiter=: -f 2 | cut --delimiter =' ' -f 1`
+ip=`ifconfig eth0 | grep "inet adr" | cut --delimiter=: -f 2 | cut --delimiter=' ' -f 1`
 date=`date`
 subject=`echo "Rapport FunkLoad du "`\$date
 text=`echo Lien vers le Rapport: http://`\$ip":${pport}/reports/"\$filename"/"
