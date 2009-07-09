@@ -44,10 +44,10 @@ class buildbotSlave(Template):
         vars['recipe'] = recipe
         vars['directory'] = '${buildout:directory}'
         vars['hostname'] = socket.gethostname()
-
-    def post(self, *args, **kwargs):
-        vars['password'] = ''.join([random.choice(string.ascii_letters) for i in range(8)])
-	vars['pythonpath'] = os.path.dirname(sys.executable) 
+	vars['password'] = ''.join([random.choice(string.ascii_letters) for i in range(8)])
+        vars['pythonpath'] = os.path.dirname(sys.executable)
+    
+def post(self, *args, **kwargs):
 	print "==================================================="
         print "Configuration slave effectuee"
         print "Creez un lien symbolique vers votre python"
