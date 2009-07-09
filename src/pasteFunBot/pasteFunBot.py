@@ -1,19 +1,13 @@
 import copy
 import socket
-
+import random
 import pkg_resources
-
+import string
+import os, sys
 from paste.script import templates
 
 var = templates.var
 recipe = 'collective.buildbot'
-
-def get_var(vars, name):
-    for var in vars:
-        if var.name == name:
-            return var
-        else:
-            return ValueError("No such var: %r" % name)
 
 class Template(templates.Template):
     summary = "Projet de test de construction et de montee en charge"
@@ -34,19 +28,14 @@ class buildbotSlave(Template):
     vars = copy.deepcopy(Template.vars)
     
     vars.append(
-		var('aport', 'Port de l\'application testee', default='')
-		)
-
-    vars.append(
-		var('pport', 'Port utilise pour acceder au buildbot et aux rapports', default='8000')
-		)    
-
-    vars.append(
 		var('master_adress', 'Adresse du maitre')
 		)
     vars.append(
-                var('password', 'Mot de passe de l\'esclave')
-                )
+		var('aport', 'Port de l\'application testee', default='')
+		)
+    vars.append(
+		var('pport', 'Port utilise pour acceder au buildbot et aux rapports', default='8000')
+		)    
     vars.append(
 		var('email', 'Adresse de reception des rapports')
 		)    
@@ -57,7 +46,9 @@ class buildbotSlave(Template):
         vars['hostname'] = socket.gethostname()
 
     def post(self, *args, **kwargs):
-        print "==================================================="
+        vars['password'] = ''.join([random.choice(string.ascii_letters) for i in range(8)])
+	vars['pythonpath'] = os.path.dirname(sys.executable) 
+	print "==================================================="
         print "Configuration slave effectuee"
         print "Creez un lien symbolique vers votre python"
         print "dans le dossier bin/ et nomme python-nom_du_projet"

@@ -1,18 +1,42 @@
 import sys
+import os
 import smtplib
-from email.MIMEText import MIMEText
+from email.mime.multipart import MIMEMultipart
+from email.mime.image import MIMEImage
+from email.mime.text import MIMEText
 
-def sendTextMail(to,subject,text):
+
+def sendMail(to,subject,path,text):
+
+    emailmultipart = MIMEMultipart();
     sender = "stpda-server@makina-corpus.com"
     mail = MIMEText(text)
-    mail['From'] = sender
-    mail['Subject'] = subject
-    mail['To'] = to
+    emailmultipart['From'] = sender
+    emailmultipart['Subject'] = subject
+    emailmultipart['To'] = to
+
+    emailmultipart.attach(mail)
+
+    fp = open(path+'/request.png', 'rb')
+    img = MIMEImage(fp.read())
+    fp.close()
+    emailmultipart.attach(img)  
+
+    fp = open(path+'/rps_diff.png', 'rb')
+    img = MIMEImage(fp.read())
+    fp.close()
+    emailmultipart.attach(img)
+	
+    fp = open(path+'/spps_diff.png', 'rb')
+    img = MIMEImage(fp.read())
+    fp.close()
+    emailmultipart.attach(img)
+
     smtp = smtplib.SMTP()
     smtp.connect('smtp.makina-corpus.com')
-    smtp.sendmail(sender, [to], mail.as_string())
+    smtp.sendmail(sender, [to], emailmultipart.as_string())
     smtp.close()
  
 if __name__ == "__main__":
     l = sys.argv[1:]
-    sendTextMail(l[0],l[1], l[2])
+    sendMail(l[0],l[1], l[2], l[3])
