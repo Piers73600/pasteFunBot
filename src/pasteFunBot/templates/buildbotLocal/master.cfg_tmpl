@@ -9,7 +9,7 @@ recipe = ${recipe}:master
 # Nom du projet
 project-name = ${project} project
 #Url du projet
-project-url = http://127.0.0.1:8080/
+project-url = http://127.0.0.1:9080/
 
 # Autoriser la construction de force sur l'interface web
 allow-force = true

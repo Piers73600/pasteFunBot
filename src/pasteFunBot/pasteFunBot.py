@@ -40,6 +40,7 @@ class buildbotLocal(templates.Template):
         vars['hostname'] = socket.gethostname()                               
         vars['password'] = ''.join([random.choice(string.ascii_letters) for i in range(8)]) 
         vars['pythonpath'] = os.path.dirname(sys.executable) 
+	vars['aport'] = '8080'	
 
 class buildbotSlave(Template):
     _template_dir = 'templates/buildbotSlave'
