@@ -3,8 +3,8 @@ parts = ${hostname}
 
 [${hostname}]
 recipe = ${recipe}:slave
-host = ${master_adress} 
-port = ${port}
+host = 127.0.0.1 
+port = 9050
 password = ${password}
 environment = slaveenv
 
