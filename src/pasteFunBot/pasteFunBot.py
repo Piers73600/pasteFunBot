@@ -28,7 +28,7 @@ class buildbotLocal(templates.Template):
     egg_plugin = [recipe]
 
     vars = [
-	var('vcs', 'Utilitaire de versionnement utilise', default='svn')
+	var('vcs', 'Utilitaire de versionnement utilise', default='svn'),
 	var('vcs_url', 'Url du depot')	
         ]
 
