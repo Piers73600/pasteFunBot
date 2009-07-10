@@ -1,0 +1,13 @@
+[buildout]
+parts = ${hostname}
+
+[${hostname}]
+recipe = ${recipe}:slave
+host = ${master_adress} 
+port = ${port}
+password = ${password}
+environment = slaveenv
+
+[slaveenv]
+PYTHONPATH = ${pythonpath}
+

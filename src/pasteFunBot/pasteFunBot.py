@@ -20,6 +20,27 @@ class Template(templates.Template):
 	var('port', 'Port d\'ecoute des esclaves', default='9050') 
         ]
 
+class buildbotLocal(templates.Template):
+    summary = "Projet de test de construction et de montee en charge en local"
+    required_templates = []
+    use_cheetah = True
+    _template_dir = 'templates/buildbotLocal'
+    egg_plugin = [recipe]
+
+    vars = [
+	var('vcs', 'Utilitaire de versionnement utilise', default='svn')
+	var('vcs_url', 'Url du depot')	
+        ]
+
+    def pre(self, command, output_dir, vars):
+	vars['vcs_user'] = ''
+	vars['vcs_user_password'] = ''
+        vars['recipe'] = recipe
+        vars['directory'] = '${buildout:directory}'
+        vars['hostname'] = socket.gethostname()                               
+        vars['password'] = ''.join([random.choice(string.ascii_letters) for i in range(8)]) 
+        vars['pythonpath'] = os.path.dirname(sys.executable) 
+
 class buildbotSlave(Template):
     _template_dir = 'templates/buildbotSlave'
     summary = "Configuration d'un esclave buildbot ainsi que de tests de montee en charge funkload"

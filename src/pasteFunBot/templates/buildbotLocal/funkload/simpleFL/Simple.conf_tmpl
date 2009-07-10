@@ -1,0 +1,85 @@
+#Funkload fichier de config
+#
+
+# ---------------------------
+# Section principale
+
+[main]
+#Titre du test
+title=Test exemple de funkload
+
+#Description du test
+description= test exemple sur un site de la machine 
+
+#url du site sujet au test
+#if $aport
+url=http://127.0.0.1:${aport}/
+#else
+url=http://127.0.0.1/
+#end if
+# -----------------------
+# Description et configuration des tests
+# il peut y avoir un par test
+
+[test_simple]
+#description du test
+description=Accede %(nb_time)s fois a la page du site
+
+#nombre de connexions sur le site
+nb_time=10
+
+# ---------------------
+# Configuration monitoring
+
+
+[monitor]
+#Nom du moniteur
+hosts=localhost
+
+[localhost]
+#Port utilise par le moniteur
+port=8081
+#Description du moniteur
+description=Machine de bench
+
+#Gestion des tests "simples"
+[ftest]
+#Permet de choisir si l'on desire un affichage sur console ou dans un fichier
+#il est possible de choisir les deux (console file)
+log_to = console file
+
+#Chemin vers le fichier de log
+log_path = ./log/simple-test.log
+#Chemin vers le fichier de resultat
+result_path = ./xml/simple-test.xml
+
+#Temps minimal entre l'execution des tests
+sleep_time_min = 0
+#Temps maximal entre l'execution des tests
+sleep_time_max = 0
+
+#Gestion des tests de benching
+[bench]
+#Cycles de threads, dans cet exemple nous avons decide d'executer 5 fois les
+# tests avec 20 puis 30 puis 50 ... threads
+cycles = 20:30:50:70:100
+
+#Duree du cycle de test
+duration = 20
+
+#Delai de demarrage des threads
+startup_delay = 0.05
+
+#Temps entre chaque l'execution de chaque test par les threads
+sleep_time = 1
+
+#Nombre de cycles de tests
+cycle_time = 1
+
+#Identiques aux variables de la parts precedente
+log_to = file
+log_path = ./log/simple-bench.log
+result_path = ./xml/simple-bench.xml
+
+sleep_time_min = 0
+sleep_time_max = 0.5

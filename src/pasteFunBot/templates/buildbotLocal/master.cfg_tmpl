@@ -2,38 +2,38 @@
 master-parts =
     master
     ${egg} 
-    poller
+#    poller
 
 [master]
 recipe = ${recipe}:master
 # Nom du projet
 project-name = ${project} project
 #Url du projet
-project-url = http://${hostname}:${wport}/
+project-url = http://127.0.0.1:8080/
 
 # Autoriser la construction de force sur l'interface web
 allow-force = true
 
 # Pour interne utilise pour les slaves
-port = ${port}
+port = 9050
 
 # port http
-wport = ${wport}
+wport = 9080
 
 # url du buildbot changez le si vous utiliser un virtual host
-url = http://${hostname}:${wport}/
+url = http://127.0.0.1:9080/
 
 # fichiers statiques
 public-html = ${directory}/public_html
 
 # Noms et mots de passe des slaves
 slaves =
-    ${slaves} ${slaves_pwd}
+    ${hostname} ${password}
 
 [${project}]
 recipe = ${recipe}:project
 #Noms des slaves
-slave-names = ${slaves}
+slave-names = ${hostname}
 #utilitaire de versionnement utilise
 vcs = ${vcs}
 #Adresse du depot de versionnement du projet
@@ -56,8 +56,8 @@ cron-scheduler = 0 8 * * *
 #Vous pouvez faire construire l'application de la maniere dont vous le souhaitez
 #Cependant, utilisez le python python-\${project} pour executer ces actions 
 build-sequence =
-	python-${project} bootstrap.py
-	python-${project} bin/buildout -vvvvv
+	python bootstrap.py
+	python bin/buildout -vvvvv
 
 #Pour realiser vos tests, il est necessaire de creer dans le dossier build
 #du buildbot un script bash contenant les tests a executer

@@ -1,0 +1,22 @@
+[DEFAULT]
+debug = false
+test_url = false
+
+[composite:main]
+use = egg:Paste#urlmap
+/buildbot = buildbot
+/reports = reports
+
+[app:buildbot]
+use = egg:Paste#proxy
+address = http://localhost:9080
+allowed_request_methods = GET POST
+
+[app:reports]
+use = egg:Paste#static
+document_root = %(here)s/funkload/reports
+
+[server:main]
+use = egg:Paste#http
+host = 0.0.0.0
+port = ${pport} 
