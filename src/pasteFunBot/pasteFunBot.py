@@ -41,6 +41,7 @@ class buildbotLocal(templates.Template):
         vars['password'] = ''.join([random.choice(string.ascii_letters) for i in range(8)]) 
         vars['pythonpath'] = os.path.dirname(sys.executable) 
 	vars['aport'] = '8080'	
+	vars['pport'] = '8000'
 
 class buildbotSlave(Template):
     _template_dir = 'templates/buildbotSlave'
