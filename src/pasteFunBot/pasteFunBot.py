@@ -44,6 +44,13 @@ class buildbotLocal(templates.Template):
 	vars['aport'] = '8080'	
 	vars['pport'] = '8000'
 
+    def post(self, *args, **kwargs):
+        print "==================================================="
+        print "Configuration de l'application en local effectuee"
+	print "Verifiez les fichiers de configuration"
+        print "Pensez a lire les LISEZ-MOI"
+        print "==================================================="
+
 class buildbotSlave(Template):
     _template_dir = 'templates/buildbotSlave'
     summary = "Configuration d'un esclave buildbot ainsi que de tests de montee en charge funkload"
@@ -71,12 +78,9 @@ class buildbotSlave(Template):
 	vars['password'] = ''.join([random.choice(string.ascii_letters) for i in range(8)])
         vars['pythonpath'] = os.path.dirname(sys.executable)
     
-def post(self, *args, **kwargs):
+    def post(self, *args, **kwargs):
 	print "==================================================="
         print "Configuration slave effectuee"
-        print "Creez un lien symbolique vers votre python"
-        print "dans le dossier bin/ et nomme python-nom_du_projet"
-        print "enfin, ajoutez le au PATH du systeme"
 	print "Pensez a lire les LISEZ-MOI"
         print "==================================================="
 
@@ -114,8 +118,8 @@ class buildbotMaster(Template):
 	vars['slaves_pwd'] = 'mot_de_passe_slave'
 
     def post(self, *args, **kwargs):
-        print "==================================================="
+        print "=================================================================="
         print "Configuration master effectuee"
-        print "N'oubliez pas de completer master.cfg (slaves, ...)"
+        print "N'oubliez pas de completer master.cfg (slaves, buildsequence, ...)"
 	print "Pensez a lire les LISEZ-MOI"
-	print "==================================================="  
+	print "=================================================================="  
