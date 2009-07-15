@@ -77,6 +77,7 @@ class buildbotSlave(Template):
         vars['hostname'] = socket.gethostname()
 	vars['password'] = ''.join([random.choice(string.ascii_letters) for i in range(8)])
         vars['pythonpath'] = os.path.dirname(sys.executable)
+	
     
     def post(self, *args, **kwargs):
 	print "==================================================="
@@ -103,12 +104,6 @@ class buildbotMaster(Template):
     vars.append(
 		var('vcs_url', 'Url du depot')
 		)
-    vars.append(
-		var('vcs_user', 'Username du depot')
-		)
-    vars.append(
-		var('vcs_user_password', 'Mot de passe du depot', should_echo=False)
-		)
 
     def pre(self, command, output_dir, vars):
         vars['recipe'] = recipe
@@ -116,6 +111,8 @@ class buildbotMaster(Template):
         vars['hostname'] = socket.gethostname()
 	vars['slaves'] = 'nom_du_slave'
 	vars['slaves_pwd'] = 'mot_de_passe_slave'
+	vars['vcs_user'] = ''
+	vars['vcs_user_password'] = ''
 
     def post(self, *args, **kwargs):
         print "=================================================================="

@@ -2,7 +2,7 @@
 master-parts =
     master
     ${egg} 
-    poller
+#   poller
 
 [master]
 recipe = ${recipe}:master
