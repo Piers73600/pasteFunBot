@@ -52,12 +52,17 @@ Maintenant, il ne vous reste plus qu'a utiliser ce nouveau paster:
 paster create -t funbot_master
 ou
 paster create -t funbot_slave
+ou
+paster create -t funbot_local
 
 Après avoir répondu à diverses questions, la configuration générale du projet 
 sera réalisée.
 Cependant, il vous reste quelques actions à effectuer.
 
 ********************************Configuration**********************************
+
+Remarque: Pensez à éditer le build-sequence ainsi que le test-sequence dans le
+fichier master.cfg. Afin qu'ils puissent convenir à votre application.
 
 Si vous avez créé un master:
 ----------------------------
@@ -66,10 +71,6 @@ ainsi que leur mots de passe.
 Deuxièmement, dans ce même fichier, vous pouvez spécifier les lignes de 
 commandes à executer par les esclaves, dans la section monprojet dans la
 variable build-sequence.
-
-Note: rappelons qu'il vous faut créer un lien symbolique chez les esclaves
-dénommé python-monprojet dans un dossier nommé bin/ pointant sur le python que 
-vous voulez utiliser.
 
 Troisièmement, toujours dans la configuration du master, il est également
 possible, comme pour la construction de l'application de préciser les
@@ -96,10 +97,6 @@ dans le dossier funkload pour que vous puissiez prendre en main l'outil.
 Un Lisez-moi est disponible dans ce dossier, expliquant le fonctionnement
 global de funkload.
 
-Ensuite, dans le but de rendre vos rapports de tests accessibles de l'exterieur
-il est nécessaire de faire un lien symbolique nommé "reports" vers le dossier du
-même nom contenu dans le dossier funkload du projet de la machine esclave.
-
 Une fois la configuration effectuée, entrez les commandes suivantes:
 python bootstrap.py
 ./bin/buildout
@@ -116,7 +113,22 @@ Quelques dernières manipulations sur l'esclave:
 => Vérifiez les droits d'exécution du fichier make_reports.sh afin de permettre
 au slave de l'executer
 
-
-
 Vous pouvez avoir acces à votre buildbot via l'adresse suivante:
-http://adresseslave:8000/buildbot
+http://adresseslave:portBuildbot/
+
+Si vous avez créé un funbot local:
+----------------------------------
+
+Vérifiez la configuration des différents fichiers de conf (master, slave notamment).
+Puis exécutez les commandes suivantes:
+
+python bootstrap.py
+./bin/buildout -vvvv
+
+Votre application est alors correctement configurée, il ne vous reste plus qu'a lancer le master et le slave:
+./bin/master start
+./bin/nomdevotremachine start
+
+Pensez egalement a lancer la commande suivante pour beneficier de votre buildbot et des rapports:
+paster serve mail.ini &
+
