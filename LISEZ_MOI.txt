@@ -61,8 +61,12 @@ Cependant, il vous reste quelques actions à effectuer.
 
 ********************************Configuration**********************************
 
-Remarque: Pensez à éditer le build-sequence ainsi que le test-sequence dans le
+Remarques: 
+- Pensez à éditer le build-sequence ainsi que le test-sequence dans le
 fichier master.cfg. Afin qu'ils puissent convenir à votre application.
+- Si vous souhaitez utiliser un environnement virtuel spécifique,
+lors de l'utilisation des commandes "python bootstrap.py" ainsi que 
+"./bin/buildout" veuillez activer l'environnement virtuel que vous désirez.
 
 Si vous avez créé un master:
 ----------------------------
