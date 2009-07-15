@@ -9,7 +9,7 @@ from email.mime.text import MIMEText
 def sendMail(to,subject,path,text):
 
     emailmultipart = MIMEMultipart();
-    sender = "stpda-server@makina-corpus.com"
+    sender = "${hostname}@makina-corpus.com"
     mail = MIMEText(text)
     emailmultipart['From'] = sender
     emailmultipart['Subject'] = subject
