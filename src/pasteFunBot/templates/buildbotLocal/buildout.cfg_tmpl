@@ -10,9 +10,13 @@ parts =
 #De-commentez cette ligne de code pour utiliser buildbot en ligne de commande 
 #    buildbot-script
 
+versions = versions
+
 [buildbot-script]
 recipe = zc.recipe.egg
 eggs = buildbot
 entry-points = buildbot-script=pkg_resources:run_script
 arguments = 'buildbot', 'buildbot'
 
+[versions]
+buildbot = 0.7.10
