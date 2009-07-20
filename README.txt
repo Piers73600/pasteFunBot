@@ -23,6 +23,16 @@ You'll have to install:
 	- gnuplot (via apt-get for example), to be able to generate reports
 	- an apache server, to display those reports and allow you to see it from the outside
 
+****************************Why such a paster ?*******************************
+
+The reason of the creation of this paster, was the necessity of running 
+workload tests every day and compare the results of modifications on the
+application.
+The advantage to use buildbot is to verify if the application is still 
+building before running the tests.
+And to finish, receive the differencial report by mail to have a glimpse
+about the modifications.
+
 *********************************Use******************************************
 
 First of all, once you got FunBot, you should verify if the installation succeeded.

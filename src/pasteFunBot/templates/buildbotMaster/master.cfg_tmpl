@@ -20,7 +20,7 @@ port = ${port}
 # http port
 wport = ${wport}
 
-# Buildbot url, change it if you are using a virtual environment
+# Buildbot url, change it if you are using a virtual host
 url = http://${hostname}:${wport}/
 
 # static files

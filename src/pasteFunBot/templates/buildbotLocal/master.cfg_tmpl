@@ -6,37 +6,37 @@ master-parts =
 
 [master]
 recipe = ${recipe}:master
-# Nom du projet
+# Project name 
 project-name = ${project} project
-#Url du projet
+# Project url
 project-url = http://127.0.0.1:9080/
 
-# Autoriser la construction de force sur l'interface web
+# Allow force build through web interface
 allow-force = true
 
-# Pour interne utilise pour les slaves
+# Internal port used by slaves
 port = 9050
 
-# port http
+# Http port
 wport = 9080
 
-# url du buildbot changez le si vous utiliser un virtual host
+# Buildbot url, change it if you are using a virtual host
 url = http://127.0.0.1:9080/
 
-# fichiers statiques
+# Static files 
 public-html = ${directory}/public_html
 
-# Noms et mots de passe des slaves
+# Slaves names and password
 slaves =
     ${hostname} ${password}
 
 [${project}]
 recipe = ${recipe}:project
-#Noms des slaves
+# Slaves name
 slave-names = ${hostname}
-#utilitaire de versionnement utilise
+# Used vcs
 vcs = ${vcs}
-#Adresse du depot de versionnement du projet
+# Repositories url
 repositories = ${vcs_url}
 vcs-mode = clobber
 # notifications
@@ -48,29 +48,27 @@ vcs-mode = clobber
 #Periodicite (en min) des tests, par defaut, toutes les heures 
 #periodic-scheduler=60
 
-#Cron de la construction 
+# Cron scheduler, by default set to each days at 8 am 
 cron-scheduler = 0 8 * * *
 
-
-#Sequence de commandes pour la construction des applications
-#Vous pouvez faire construire l'application de la maniere dont vous le souhaitez
+# Build sequence which will be realized by the slaves to build the project
 build-sequence =
 	python bootstrap.py
 	python bin/buildout -vvvvv
 
-#Pour realiser vos tests, il est necessaire de creer dans le dossier build
-#du buildbot un script bash contenant les tests a executer
+# Test sequence contains the commands that will be used by the slaves to
+# test the built application. To use the funkload tests please use the
+# make command as shown in the following example.
 test-sequence =
 	make -C ../../../../funkload/simpleFL/ test
+
 [poller]
 recipe = ${recipe}:poller
-#Adresse du depot de versionnement du projet (il est possible de donner une
-# liste de depots)
+# Repositories to be checked by the poller 
 repositories = ${vcs_url}
-#Nom d'utilisateur du depot
-user = ${vcs_user}
-#Mot de passe d'utilisateur du depot
-password = ${vcs_user_password}
-#Intervale de temps (en secondes) de verification des changements sur le depot
+# Username for the repositories
+#user = ${vcs_user}
+# Password for the repositories
+#password = ${vcs_user_password}
+# Time interval between the checking by the poller
 poll-interval = 120
-
