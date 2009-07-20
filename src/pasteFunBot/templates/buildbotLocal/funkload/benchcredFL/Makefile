@@ -1,5 +1,6 @@
-#test de credential avec du benching
+# Credential test with benching makefile
 
+# Command line to launch the monitor and credential
 MONCTL := fl-monitor-ctl monitor.conf
 CREDCTL := fl-credential-ctl credential.conf
 
@@ -14,4 +15,6 @@ bench_credential:
     fl-run-bench test_Cmf.py Cmf.test_01_connect
     $(CREDCTL) stop
     $(MONCTL) stop
+# make_reports is the script used to generate the funkload reports
+# and to send the result of this in a mail
     ../make_reports.sh benchcredFL/ cmf-bench.xml 

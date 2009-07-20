@@ -1,4 +1,4 @@
-#Makefile de funkload
+# Funkload makefile
 
 MONCTL := fl-monitor-ctl monitor.conf
 
@@ -14,4 +14,6 @@ simple_bench:
 	$(MONCTL) restart
 	fl-run-bench test_Simple.py Simple.test_simple
 	$(MONCTL) stop
+# make_reports is the script used to generate the funkload reports
+# and to send it by mail
 	../make_reports.sh simpleFL/ simple-bench.xml

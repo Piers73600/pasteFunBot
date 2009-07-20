@@ -54,7 +54,6 @@ cron-scheduler = 0 8 * * *
 
 #Sequence de commandes pour la construction des applications
 #Vous pouvez faire construire l'application de la maniere dont vous le souhaitez
-#Cependant, utilisez le python python-\${project} pour executer ces actions 
 build-sequence =
 	python bootstrap.py
 	python bin/buildout -vvvvv

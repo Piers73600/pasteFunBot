@@ -4,7 +4,7 @@ parts =
     master
     ${egg} 
     poller
-#De-commentez cette ligne de code pour utiliser buildbot en ligne de commande 
+#Uncomment this line to use buildbot with command line 
 #    buildbot-script
 
 versions = versions

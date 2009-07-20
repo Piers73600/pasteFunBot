@@ -1,14 +1,16 @@
-# Fichier de config des tests
+# Funkload config file
 
 #----------------------------------
-# Section principale
+# Main section
 
 [main]
-#Nom des tests
+# Global test name
 title=Tests cmf simples
-#Description des tests
+
+# Global test description
 description=Quelques actions basiques
-#Url du site a tester
+
+# Web application adress
 #if $aport
 url=http://localhost:${aport}/
 #else
@@ -16,66 +18,65 @@ url=http://localhost/
 #end if
 
 #---------------------------------
-# Description et configuration des tests
-# Il est possible de mettre une section par fonction de test
+# Test description and settings
 [test_01_connect]
-#description du test
+# test_01_connect description
 description="connexion au site"
 
 #---------------------------------
-# Acces credential
+# Credential configuration
 [credential]
-#Adresse du serveur credential
+# Credential server adress
 host=localhost
-#Port du serveur credential
+# Credential server port
 port=8081
 
 #--------------------------------
-# Configuration du monitoring
+# Monitoring configuration
 
 [monitor]
 #hosts=localhost
 
 [localhost]
-port=8008
+port=8082
 description=Machine de bench
 
 #---------------------------------
-# Configuration des tests unitaires
+# Cmf test management
+ 
 [ftest]
-#Permet de choisir si l'on desire un affichage sur console ou dans un fichier
-#il est possible de choisir les deux (console file)
+# Allow to choose what type of display you want
+# (console, file or both)
 log_to = console file
 
-#Chemin vers le fichier de log
+# Log file path
 log_path = ./log/cmf-test.log
-#Chemin vers le fichier de resultat
+# Result file path
 result_path = ./xml/cmf-test.xml
 
-#Temps minimal entre l'execution des tests
+# Minimal Sleep time between each test
 sleep_time_min = 0
-#Temps maximal entre l'execution des tests
+# Maximal sleep time between each test
 sleep_time_max = 0
 
-#Gestion des tests de benching
+# Benching test management
 [bench]
-#Cycles de threads, dans cet exemple nous avons decide d'executer 5 fois les
-# tests avec 20 puis 30 puis 50 ... threads
+# Thread cycles, for example we have here 5 cycles
+# of 20 then 30 etc threads
 cycles = 20:30:50:70:100
 
-#Duree du cycle de test
+# Test cycle duration
 duration = 20
 
-#Delai de demarrage des threads
+# Threads startup delay
 startup_delay = 0.05
 
-#Temps entre chaque l'execution de chaque test par les threads
+# Sleep time between each test of threads
 sleep_time = 1
 
-#Nombre de cycles de tests
+# Number of test cycles
 cycle_time = 1
 
-#Identiques aux variables de la parts precedente
 log_to = file
 log_path = ./log/cmf-bench.log
 result_path = ./xml/cmf-bench.xml

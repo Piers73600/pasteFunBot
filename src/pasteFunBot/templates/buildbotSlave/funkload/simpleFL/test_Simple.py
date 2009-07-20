@@ -9,15 +9,14 @@ class Simple(FunkLoadTestCase):
 		self.server_url = self.conf_get('main', 'url')
 
 	def test_simple(self):
-		# la description doit etre mise dans le fichier de conf
 		server_url = self.server_url
-		# debut du test
+		# Beginning of the test
 		nb_time = self.conf_getInt('test_simple', 'nb_time')
 
 		for i in range(nb_time):
 			self.logd('Try %i' % i)	
 			self.get(server_url, description='Get page principale de google')
-		# fin du test
+		# End of the test
 
 	def tearDown(self):
 		self.logd("tearDown.\n")

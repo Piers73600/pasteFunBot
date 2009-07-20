@@ -1,82 +1,80 @@
-#Funkload fichier de config
+# Funkload config file
 #
 
 # ---------------------------
-# Section principale
+# Main section
 
 [main]
-#Titre du test
+# Global Test name
 title=Test exemple de funkload
 
-#Description du test
+# Global Test description
 description= test exemple sur un site de la machine 
 
-#url du site sujet au test
+# Web application adress
 #if $aport
 url=http://127.0.0.1:${aport}/
 #else
 url=http://127.0.0.1/
 #end if
+
 # -----------------------
-# Description et configuration des tests
-# il peut y avoir un par test
+# Test description and settings
 
 [test_simple]
-#description du test
+# test_simple description 
 description=Accede %(nb_time)s fois a la page du site
 
-#nombre de connexions sur le site
 nb_time=10
 
 # ---------------------
-# Configuration monitoring
+# Monitoring configuration
 
 
 [monitor]
-#Nom du moniteur
+# Monitor name
 hosts=localhost
 
 [localhost]
-#Port utilise par le moniteur
+# Monitor port
 port=8081
-#Description du moniteur
-description=Machine de bench
+# Monitor description
+description=Benching machine
 
-#Gestion des tests "simples"
+# Simple tests management
 [ftest]
-#Permet de choisir si l'on desire un affichage sur console ou dans un fichier
-#il est possible de choisir les deux (console file)
+# Allow to choose what type of display you want
+# (console, file or both)
 log_to = console file
 
-#Chemin vers le fichier de log
+# Log file path
 log_path = ./log/simple-test.log
-#Chemin vers le fichier de resultat
+# Result file path
 result_path = ./xml/simple-test.xml
 
-#Temps minimal entre l'execution des tests
+# Minimal sleep time between each test
 sleep_time_min = 0
-#Temps maximal entre l'execution des tests
+# Maximal sleep time between each test 
 sleep_time_max = 0
 
-#Gestion des tests de benching
+# Benching test management
 [bench]
-#Cycles de threads, dans cet exemple nous avons decide d'executer 5 fois les
-# tests avec 20 puis 30 puis 50 ... threads
+# Thread cycles, for example we have here 5 cycles
+# of 20 then 30 etc threads
 cycles = 20:30:50:70:100
 
-#Duree du cycle de test
+# Test cycle duration
 duration = 20
 
-#Delai de demarrage des threads
+# Threads startup delay
 startup_delay = 0.05
 
-#Temps entre chaque l'execution de chaque test par les threads
+# Sleep time between each test of threads
 sleep_time = 1
 
-#Nombre de cycles de tests
+# Number of test cycles
 cycle_time = 1
 
-#Identiques aux variables de la parts precedente
 log_to = file
 log_path = ./log/simple-bench.log
 result_path = ./xml/simple-bench.xml

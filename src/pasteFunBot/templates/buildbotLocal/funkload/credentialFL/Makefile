@@ -1,4 +1,4 @@
-#Makefile de test credential
+# Credential test makefile
 
 CREDCTL := fl-credential-ctl credential.conf
 

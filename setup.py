@@ -4,11 +4,14 @@ version = "0.1"
 
 setup(name="pasteFunBot",
     version = version,
-    description = "construction et test de monte en charge",
-    long_description = "rien",
+    description = "Tool to build and test a complete project",
+    long_description = "
+	Using buildbot and funkload, allow you to have 
+	a feedback of your modifications of a python project with funkload differencial 
+	reports and buildbot waterfall",
     classifiers=[],
-    keywords = "",
-    author = "Piers",
+    keywords = "funkload buildbot",
+    author = "Piers(Pierre-Louis Davallon)",
     author_email = "",
     url = "stpda@cgit.makina-corpus.net:~/git/pasteFunBot.git",
     license = "GNU",
