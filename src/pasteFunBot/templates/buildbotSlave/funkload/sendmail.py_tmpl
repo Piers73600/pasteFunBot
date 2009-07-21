@@ -9,7 +9,7 @@ from email.mime.text import MIMEText
 def sendMail(to,subject,path,text):
 
     emailmultipart = MIMEMultipart();
-    sender = "${hostname}@makina-corpus.com"
+    sender = "${hostname}@somedomain.com"
     mail = MIMEText(text)
     emailmultipart['From'] = sender
     emailmultipart['Subject'] = subject
@@ -33,7 +33,7 @@ def sendMail(to,subject,path,text):
     emailmultipart.attach(img)
 
     smtp = smtplib.SMTP()
-    smtp.connect('smtp.makina-corpus.com')
+    smtp.connect('smtp.somedomain.com')
     smtp.sendmail(sender, [to], emailmultipart.as_string())
     smtp.close()
  

@@ -2,3 +2,6 @@ bin/
 eggs/
 develop-eggs/
 parts/
+.installed.cfg
+.mr.developer.cfg
+src/pasteFunBot.egg-info
