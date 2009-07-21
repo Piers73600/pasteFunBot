@@ -1,4 +1,0 @@
-Cheetah
-setuptools
-PasteScript>=1.3
-funkload
