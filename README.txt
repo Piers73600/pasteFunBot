@@ -90,6 +90,9 @@ such as http://localhost:8000/reports/report_name/ :
 
 paster serve reports.ini &  
 
+Finally, just verify the execution rights of the make_reports.sh file and put the
+name of the smtp server you will use to send your reports in the funkload/sendmail.py.
+If the righ "x" is not available for the users, change it.
 
 If you have created a master:
 -----------------------------
@@ -133,7 +136,8 @@ such as http://localhost:8000/reports/report_name/ :
 
 paster serve reports.ini &
 
-Finally, just verify the execution rights of the make_reports.sh file.
-If the righ "x" is not available for the users, just change it.
+Finally, just verify the execution rights of the make_reports.sh file and put the
+name of the smtp server you will use to send your reports in the funkload/sendmail.py.
+If the righ "x" is not available for the users, change it.
 
 
