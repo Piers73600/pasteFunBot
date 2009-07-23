@@ -17,7 +17,7 @@ setup(name="pasteFunBot",
     url = "http://piers73600.github.com/pasteFunBot",
     license = "",
     include_package_data = True,
-    zip_safe = True,
+    zip_safe = False,
     install_requires=[
 	'Cheetah',
 	'setuptools',
