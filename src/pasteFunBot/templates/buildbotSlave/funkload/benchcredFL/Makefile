@@ -17,4 +17,4 @@ bench_credential:
     $(MONCTL) stop
 # make_reports is the script used to generate the funkload reports
 # and to send it by mail
-    ../make_reports.sh benchcredFL/ cmf-bench.xml 
+    ../make_reports.sh cmf-bench.xml 

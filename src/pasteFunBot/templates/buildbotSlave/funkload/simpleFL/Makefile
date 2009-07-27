@@ -16,4 +16,4 @@ simple_bench:
 	$(MONCTL) stop
 # make_reports is the script used to generate the funkload reports
 # and to send it by mail
-	../make_reports.sh simpleFL/ simple-bench.xml
+	../make_reports.sh simple-bench.xml

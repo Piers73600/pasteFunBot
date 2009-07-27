@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd `pwd`/xml/
-fl-build-report --html --output-directory=../../reports/ \$2
+fl-build-report --html --output-directory=../../reports/ \$1
 sleep 5
 cd ../../reports/
 current=`ls | grep -v diff | tail -1`
